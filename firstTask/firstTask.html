@@ -63,7 +63,7 @@
         if (isNaN(currentHours) || isNaN(currentMinutes) || currentHours < 0 || currentHours > 23 || currentMinutes < 0 || currentMinutes > 59) {
             document.getElementById('result').innerText = "Error: Please enter valid time!";
         } else {
-            let remainingHours = 24 - currentHours;
+            let remainingHours = 23 - currentHours;
             let remainingMinutes = 60 - currentMinutes;
 
             document.getElementById('result').innerText = `Time left until next day: ${remainingHours} hours and ${remainingMinutes} minutes.`;

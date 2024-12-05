@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання</title>
+    <style>
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-bar .base-salary {
+            height: 100%;
+            background-color: #4CAF50;
+            display: inline-block;
+        }
+
+        .progress-bar .bonus {
+            height: 100%;
+            background-color: #FF5722;
+            display: inline-block;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+            display: inline-block;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .circle {
+            width: 49px;
+            height: 49px;
+            background-color: #FF5722;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .circle:hover {
+            transform: scale(1.1);
+        }
+
+        .elementsDiv {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            width: 90%;
+            margin: 20px auto;
+            border: 2px solid #ccc;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #result {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+<h1>Завдання</h1>
+<div class="content">
+    <p>1. Введіть номер місяця, щоб побачити його назву.</p>
+    <button onclick="showMonth()">Дізнатися назву місяця</button>
+    <br>
+    <strong id="monthResult"></strong>
+
+    <p>2. Перевірка числа на кратність 5.</p>
+    <button onclick="checkDivisibility()">Перевірити</button>
+    <br>
+    <strong id="divisibilityResult"></strong>
+
+    <p>4. Розрахунок заплати.</p>
+    <input type="number" id="baseSalary" placeholder="Ставка ($)">
+    <input type="number" id="salesAmount" placeholder="Сума продажів ($)">
+    <button onclick="calculateSalary()">Розрахувати</button>
+    <div id="result"></div>
+    <div id="progressContainer" style="margin-top: 10px;"></div>
+    <br>
+
+    <p>3. Додавання елементів.</p>
+    <input type="number" id="inputNumber" placeholder="Введіть ціле число">
+    <button onclick="addElements()">Додати</button>
+    <br>
+    <div class="elementsDiv" id="elementsDiv"></div>
+</div>
+
+<script>
+    function showMonth() {
+        const monthNumber = parseInt(prompt("Введіть номер місяця (1-12):"));
+        const months = [
+            "Січень", "Лютий", "Березень", "Квітень", "Травень",
+            "Червень", "Липень", "Серпень", "Вересень",
+            "Жовтень", "Листопад", "Грудень"
+        ];
+
+        const result = (monthNumber >= 1 && monthNumber <= 12)
+            ? months[monthNumber - 1]
+            : "Неправильний номер місяця. Введіть число від 1 до 12.";
+
+        document.getElementById("monthResult").innerText = result;
+    }
+
+    function checkDivisibility() {
+        const number = parseInt(prompt("Введіть число для перевірки:"));
+        const result = (number % 5 === 0)
+            ? `Число ${number} кратне 5.`
+            : `Число ${number} не кратне 5.`;
+
+        document.getElementById("divisibilityResult").innerText = result;
+    }
+
+    function addElements() {
+        const inputField = document.getElementById("inputNumber");
+        const number = parseInt(inputField.value);
+        const elementsDiv = document.getElementById("elementsDiv");
+
+        elementsDiv.innerHTML = "";
+
+        if (!isNaN(number) && number > 0) {
+            for (let i = 1; i <= number; i++) {
+                const circle = document.createElement("div");
+                circle.innerText = i;
+                circle.className = "circle";
+
+                elementsDiv.appendChild(circle);
+            }
+        } else {
+            alert("Будь ласка, введіть додатнє ціле число.");
+        }
+    }
+
+    function calculateSalary(){
+        const baseSalaryElement = document.getElementById("baseSalary");
+        const salesAmountElement = document.getElementById("salesAmount");
+        const resultElement = document.getElementById("result");
+        const progressContainerElement = document.getElementById("progressContainer");
+
+        if (!baseSalaryElement || !salesAmountElement || !resultElement || !progressContainerElement) {
+            console.error("Один або більше DOM-елементів не знайдено.");
+            return;
+        }
+
+        const salary = parseFloat(baseSalaryElement.value);
+        const sales = parseFloat(salesAmountElement.value);
+
+        if (isNaN(salary) || isNaN(sales) || salary <= 0 || sales < 0) {
+            alert("Будь ласка, введіть коректні значення.");
+            return;
+        }
+
+        let percent;
+        if(sales < 100){
+            percent = 1;
+        } else if(sales >= 100 && sales < 200){
+            percent = 1.1;
+        } else if(sales >= 200 && sales < 500){
+            percent = 1.15;
+        } else {
+            percent = 1.2;
+        }
+
+        const bonus = (salary * Number(percent) - salary );
+        const totalSalary = salary *  Number(percent);
+
+        // Вивід зарплати
+        resultElement.textContent = `Зарплата працівника: $${totalSalary.toFixed(2)}`;
+
+        // Розрахунок ширини прогрес-бара
+        const baseSalaryWidth = (salary / totalSalary) * 100;
+        const bonusWidth = (bonus / totalSalary) * 100;
+
+        // Генерація прогрес-бара
+        const progressBarHTML = `
+        <div class="progress-bar">
+            <div class="base-salary" style="width: ${baseSalaryWidth.toFixed(2)}%;"></div>
+            <div class="bonus" style="width: ${bonusWidth.toFixed(2)}%;"></div>
+        </div>
+        <p>Ставка: ${baseSalaryWidth.toFixed(2)}%, Бонус: ${bonusWidth.toFixed(2)}%</p>
+    `;
+
+        // Вивід прогрес-бара
+        progressContainerElement.innerHTML = progressBarHTML;
+    }
+</script>
+</body>
+</html>
