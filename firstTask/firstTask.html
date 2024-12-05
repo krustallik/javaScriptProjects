@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tasks</title>
+</head>
+<body>
+<h1>Interactive Tasks</h1>
+<div>
+    <button onclick="calculator()">1. Calculator</button>
+    <button onclick="timeUntilNextDay()">2. Time Until Next Day</button>
+    <button onclick="secondDigitOfThreeDigitNumber()">3. Second Digit of Three-Digit Number</button>
+    <button onclick="moveLastDigitToFront()">4. Move Last Digit to Front</button>
+    <button onclick="calculateSalary()">5. Calculate Salary</button>
+</div>
+
+<div id="output" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+    <h3>Output:</h3>
+    <p id="result"></p>
+</div>
+
+<script>
+    function calculator() {
+        let num1 = parseFloat(prompt("Enter the first number:"));
+        let num2 = parseFloat(prompt("Enter the second number:"));
+        let operation = prompt("Enter the operation (+, -, *, /):");
+
+        if (isNaN(num1) || isNaN(num2)) {
+            document.getElementById('result').innerText = "Error: Please enter valid numbers!";
+        } else {
+            let result;
+            switch (operation) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 === 0) {
+                        document.getElementById('result').innerText = "Cannot divide by zero!";
+                        return;
+                    } else {
+                        result = num1 / num2;
+                    }
+                    break;
+                default:
+                    document.getElementById('result').innerText = "Error: Invalid operation!";
+                    return;
+            }
+            document.getElementById('result').innerText = "Result: " + result;
+        }
+    }
+
+    function timeUntilNextDay() {
+        let currentHours = parseInt(prompt("Enter the current hours (0-23):"));
+        let currentMinutes = parseInt(prompt("Enter the current minutes (0-59):"));
+
+        if (isNaN(currentHours) || isNaN(currentMinutes) || currentHours < 0 || currentHours > 23 || currentMinutes < 0 || currentMinutes > 59) {
+            document.getElementById('result').innerText = "Error: Please enter valid time!";
+        } else {
+            let remainingHours = 24 - currentHours;
+            let remainingMinutes = 60 - currentMinutes;
+
+            document.getElementById('result').innerText = `Time left until next day: ${remainingHours} hours and ${remainingMinutes} minutes.`;
+        }
+    }
+
+    function secondDigitOfThreeDigitNumber() {
+        let threeDigitNumber = parseInt(prompt("Enter a three-digit number:"));
+
+        if (isNaN(threeDigitNumber) || threeDigitNumber < 100 || threeDigitNumber > 999) {
+            document.getElementById('result').innerText = "Error: Please enter a valid three-digit number!";
+        } else {
+            let secondDigit = Math.floor((threeDigitNumber % 100) / 10);
+            document.getElementById('result').innerText = `The second digit is: ${secondDigit}`;
+        }
+    }
+
+    function moveLastDigitToFront() {
+        let fiveDigitNumber = parseInt(prompt("Enter a five-digit number:"));
+
+        if (isNaN(fiveDigitNumber) || fiveDigitNumber < 10000 || fiveDigitNumber > 99999) {
+            document.getElementById('result').innerText = "Error: Please enter a valid five-digit number!";
+        } else {
+            let lastDigit = fiveDigitNumber % 10;
+            let remainingNumber = Math.floor(fiveDigitNumber / 10);
+            let result = parseInt(lastDigit.toString() + remainingNumber.toString());
+            document.getElementById('result').innerText = `The result is: ${result}`;
+        }
+    }
+
+    function calculateSalary() {
+        let sales = parseFloat(prompt("Enter the total sales for the month:"));
+
+        if (isNaN(sales) || sales < 0) {
+            document.getElementById('result').innerText = "Error: Please enter a valid sales amount!";
+        } else {
+            let baseSalary = 250;
+            let bonus = sales * 0.1;
+            let totalSalary = baseSalary + bonus;
+            document.getElementById('result').innerText = `The employee's salary is: $${totalSalary.toFixed(2)}`;
+        }
+    }
+</script>
+</body>
+</html>
