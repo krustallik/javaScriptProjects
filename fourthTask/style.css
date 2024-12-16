@@ -1,0 +1,67 @@
+/* Загальні стилі */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #00ff00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Стиль для годинника */
+.clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+#clock {
+    font-size: 2rem;
+    font-weight: bold;
+    transform-origin: center center;
+    transition: transform 0.5s linear;
+}
+
+/* Стиль для "консолі" */
+.console {
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+#inputText {
+    width: 70%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #00ff00;
+    background-color: black;
+    color: #00ff00;
+    margin-bottom: 10px;
+}
+
+#updateText {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #00ff00;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+#updateText:hover {
+    background-color: #005500;
+}
+
+#output {
+    margin-top: 20px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    height: 100px;
+    overflow: hidden;
+}
