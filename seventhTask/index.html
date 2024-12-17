@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма відгуку</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="feedback-container">
+  <h2>Залиште відгук</h2>
+
+  <!-- Оцінка у вигляді зірок -->
+  <div class="rating" id="rating"></div>
+
+  <!-- Поля відображаються після вибору оцінки -->
+  <div id="feedback-fields" class="hidden">
+    <textarea id="review-text" rows="4" placeholder="Ваш відгук..."></textarea>
+    <div id="review-error" class="error-message">Відгук обов'язкове поле</div>
+
+    <input type="text" id="name" placeholder="Ваше ім'я">
+    <div id="name-error" class="error-message">Ім'я може містити лише літери</div>
+
+    <input type="email" id="email" placeholder="Електронна пошта">
+    <div id="email-error" class="error-message">Введіть коректну електронну пошту</div>
+
+    <label>
+      <input type="checkbox" id="agree"> Погоджуюся з умовами політики конфіденційності
+    </label>
+
+    <button id="submit-btn" disabled>Відправити відгук</button>
+  </div>
+</div>
+
+<!-- Модальне вікно -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="close-modal">&times;</span>
+    <h3>Дякуємо за ваш відгук!</h3>
+    <p id="modal-data"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
