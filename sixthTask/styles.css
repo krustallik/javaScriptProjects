@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.shape {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.square {
+    background-color: green;
+}
+
+.rectangle {
+    background-color: blue;
+}
+
+.circle {
+    background-color: red;
+    border-radius: 50%;
+}
