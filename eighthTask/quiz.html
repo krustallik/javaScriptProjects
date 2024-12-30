@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Проходження тестів</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Проходження тестів</h1>
+
+  <!-- Екран 1: Початок -->
+  <div id="startScreen">
+    <button class="btn" onclick="location.href='index.html'">На головну</button>
+    <hr>
+    <div>
+      <label for="studentName">Введіть своє ім'я:</label>
+      <input type="text" id="studentName" placeholder="Ім'я">
+    </div>
+    <div>
+      <label for="testSelect">Оберіть тест:</label>
+      <select id="testSelect"></select>
+    </div>
+    <button class="btn" id="startBtn" disabled>Почати тестування</button>
+  </div>
+
+  <!-- Екран 2: Питання -->
+  <div id="quizScreen" class="hide">
+    <h2>Тест: <span id="testTitle"></span></h2>
+    <h3>Студент: <span id="studentLabel"></span></h3>
+    <div class="timer">
+      Залишилось: <span id="timerValue">30</span> c
+    </div>
+
+    <div id="questionContainer"></div>
+
+    <div class="nav-buttons">
+      <button class="btn" id="prevBtn">Назад</button>
+      <button class="btn" id="nextBtn">Далі</button>
+    </div>
+  </div>
+
+  <!-- Екран 3: Результат -->
+  <div id="resultScreen" class="hide">
+    <h2>Результат тестування</h2>
+    <div class="result">
+      <p><strong>Ім'я:</strong> <span id="resultName"></span></p>
+      <p><strong>Час, витрачений:</strong> <span id="resultTime"></span> сек.</p>
+      <p><strong>Оцінка:</strong> <span id="resultScore"></span>%</p>
+    </div>
+    <button class="btn" id="retryBtn">Пройти знову</button>
+  </div>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

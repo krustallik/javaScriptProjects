@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактор тестів</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Редактор тестів</h1>
+
+    <!-- Кнопка для повернення на головну -->
+    <button class="btn" onclick="location.href='index.html'">На головну</button>
+    <hr>
+
+    <!-- Кнопка для додавання нового тесту -->
+    <div>
+        <label for="newTestName">Нова назва тесту:</label>
+        <input type="text" id="newTestName" placeholder="Введіть назву тесту">
+        <button class="btn" onclick="createTest()">Додати тест</button>
+    </div>
+    <hr>
+
+    <!-- Список тестів -->
+    <h2>Список тестів:</h2>
+    <ul id="testList" class="test-list"></ul>
+    <hr>
+
+    <!-- Редагування обраного тесту -->
+    <div id="testEditor" class="hide">
+        <h2>Редагування тесту</h2>
+        <div>
+            <label for="editTestName">Назва тесту:</label>
+            <input type="text" id="editTestName">
+            <button class="btn" onclick="updateTestName()">Зберегти назву</button>
+        </div>
+        <hr>
+
+        <div>
+            <label for="newQuestionText">Текст нового питання:</label>
+            <input type="text" id="newQuestionText" placeholder="Введіть текст питання">
+            <button class="btn" onclick="addQuestion()">Додати питання</button>
+        </div>
+
+        <h3>Питання:</h3>
+        <ul id="questionList" class="question-list"></ul>
+        <hr>
+
+        <!-- Експорт/Імпорт -->
+        <div>
+            <button class="btn" onclick="exportTest()">Зберегти тест у файл</button>
+            <input type="file" id="importFile" accept=".json" onchange="importTest(this)" style="display:none"/>
+            <button class="btn" onclick="document.getElementById('importFile').click()">Завантажити тест з файлу</button>
+        </div>
+        <hr>
+
+        <button class="btn" onclick="closeEditor()">Повернутись до списку тестів</button>
+    </div>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/editor.js"></script>
+</body>
+</html>

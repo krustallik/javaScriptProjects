@@ -1,0 +1,84 @@
+/* css/style.css */
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background: #f7f7f7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.btn {
+    padding: 6px 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #e7e7e7;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.hide {
+    display: none !important;
+}
+
+.flex-inline {
+    display: flex;
+    align-items: center;
+}
+.flex-inline input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.actions {
+    text-align: right;
+}
+
+.answer-option {
+    margin: 6px 0;
+}
+
+.timer {
+    float: right;
+    font-weight: bold;
+    color: #d9534f;
+}
+
+.result {
+    background-color: #fefdd9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.question-list li, .test-list li {
+    margin: 10px 0;
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.question-list li .actions, .test-list li .actions {
+    margin-top: 10px;
+    text-align: right;
+}
