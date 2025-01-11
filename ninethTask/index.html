@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Персональний трекер часу</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <h1>Персональний трекер часу</h1>
+
+  <table id="taskTable">
+    <thead>
+    <tr>
+      <th>Задача</th>
+      <th>Час (хв:сек)</th>
+      <th>Дія</th>
+    </tr>
+    </thead>
+    <tbody id="taskTableBody">
+    <!-- Tasks will be dynamically added here -->
+    </tbody>
+  </table>
+
+  <button id="newTaskButton">Почати нову задачу</button>
+
+  <div id="newTaskForm" class="hidden">
+    <input type="text" id="taskNameInput" placeholder="Введіть назву задачі">
+    <button id="startTaskButton">Почати роботу</button>
+  </div>
+
+  <div id="activeTask" class="hidden">
+    <h2>Поточна задача: <span id="activeTaskName"></span></h2>
+    <p>Час: <span id="timer">00:00</span></p>
+    <button id="finishTaskButton">Завершити роботу</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
