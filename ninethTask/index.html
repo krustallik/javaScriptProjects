@@ -1,39 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Персональний трекер часу</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- Підключення Chart.js (через CDN) для побудови діаграми -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 <div class="container">
   <h1>Персональний трекер часу</h1>
 
+  <!-- Календар для перегляду історії -->
+  <div class="history-controls">
+    <label for="historyDatePicker">Оберіть дату:</label>
+    <input type="date" id="historyDatePicker" />
+    <button id="viewHistoryButton">Показати історію</button>
+  </div>
+
+  <!-- Таблиця з переліком задач -->
   <table id="taskTable">
     <thead>
     <tr>
       <th>Задача</th>
       <th>Час (хв:сек)</th>
-      <th>Дія</th>
+      <th>Дії</th>
     </tr>
     </thead>
     <tbody id="taskTableBody">
-    <!-- Tasks will be dynamically added here -->
+    <!-- Динамічно додані задачі -->
     </tbody>
   </table>
 
+  <!-- Кнопка для початку нової задачі (таймер в реальному часі) -->
   <button id="newTaskButton">Почати нову задачу</button>
 
+  <!-- Форма для додавання нової задачі (таймер) -->
   <div id="newTaskForm" class="hidden">
-    <input type="text" id="taskNameInput" placeholder="Введіть назву задачі">
+    <input type="text" id="taskNameInput" placeholder="Введіть назву задачі" />
     <button id="startTaskButton">Почати роботу</button>
   </div>
 
+  <!-- Блок з активною задачею (якщо є) -->
   <div id="activeTask" class="hidden">
     <h2>Поточна задача: <span id="activeTaskName"></span></h2>
     <p>Час: <span id="timer">00:00</span></p>
     <button id="finishTaskButton">Завершити роботу</button>
+  </div>
+
+  <hr/>
+
+  <!-- Форма для ручного додавання виконаної задачі -->
+  <div class="manual-task-form">
+    <h3>Додати задачу вручну</h3>
+    <label>Назва задачі:</label>
+    <input type="text" id="manualTaskName" placeholder="Назва задачі" />
+    <label>Час (хв:сек):</label>
+    <input type="text" id="manualTaskTime" placeholder="Напр. 10:30" />
+    <label>Дата виконання:</label>
+    <input type="date" id="manualTaskDate" />
+    <button id="addManualTaskButton">Додати</button>
+  </div>
+
+  <!-- Блок для кругової діаграми (розподілення часу) -->
+  <div class="chart-container">
+    <h3>Розподіл часу по задачах</h3>
+    <canvas id="timePieChart" width="400" height="400"></canvas>
   </div>
 </div>
 
