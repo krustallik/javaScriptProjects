@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
     background: #fff;
     padding: 20px;
@@ -49,16 +49,24 @@ button:hover {
 }
 
 #newTaskForm,
-.manual-task-form {
+.manual-task-form,
+.project-section,
+#authSection,
+#userSection {
     margin: 20px 0;
 }
 
 #newTaskForm input,
-.manual-task-form input {
+.manual-task-form input,
+.project-controls input,
+#loginForm input,
+#registerForm input {
     padding: 10px;
     margin-right: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    width: calc(100% - 22px); /* Adjust width for padding and border */
 }
 
 .history-controls {
@@ -69,4 +77,59 @@ button:hover {
 .chart-container {
     margin-top: 30px;
     text-align: center;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#projectList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#projectList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+#projectList li button {
+    background-color: #dc3545;
+}
+
+#projectList li button:hover {
+    background-color: #c82333;
+}
+
+#taskProjectSelect,
+#manualTaskProject {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
